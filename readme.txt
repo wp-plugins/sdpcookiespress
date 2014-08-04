@@ -8,11 +8,11 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-La solución más elegante para el cumplimiento de la ley de Cookies, de una forma rápida, sencilla y económica.
+La solución más elegante para el cumplimiento de la ley de Cookies, de una forma rápida, sencilla y gratuita.
 
 == Description ==
 
-Con SDPCookiesPress podrás cumplir con la ley de cookies ya que realiza todas las acciones requeridas: muestra banner de consentimiento en la web, bloquea las cookies afectadas y proporciona los textos legales sobre política de cookies.
+Con SDPCookiesPress podrás cumplir con la ley de cookies al 100% ya que realiza todas las acciones requeridas: muestra banner de consentimiento en la web, bloquea las cookies afectadas y proporciona los textos legales sobre política de cookies. Y lo mejor de todo: es GRATUITO
 
 Simplemente te recordamos que al tratarse de una solución automatizada y editable por el usuario, no podemos hacernos responsable de su correcto uso ni de las modificaciones que se puedan realizar por parte de los usuarios. Si necesitas más información puedes vistar nuestra página web http://welcome.smartdataprotection.eu/store/cookies
 
