@@ -14,17 +14,15 @@ La solución más elegante para el cumplimiento de la ley de Cookies, de una for
 
 Con SDPCookiesPress podrás cumplir con la ley de cookies ya que realiza todas las acciones requeridas: muestra banner de consentimiento en la web, bloquea las cookies afectadas y proporciona los textos legales sobre política de cookies.
 
-Simplemente te recordamos que al tratarse de una solución automatizada y editable por el usuario, no podemos hacernos responsable de su correcto uso ni de las modificaciones que se puedan realizar por parte de los usuarios. Si necesitas más información puedes vistar nuestra página web http://smartdataprotection.eu
+Simplemente te recordamos que al tratarse de una solución automatizada y editable por el usuario, no podemos hacernos responsable de su correcto uso ni de las modificaciones que se puedan realizar por parte de los usuarios. Si necesitas más información puedes vistar nuestra página web http://welcome.smartdataprotection.eu/store/cookies
 
 Es tú responsabilidad revisar todos los texto y funcionalidad del plugin. Se trata de un sistema automatizado y por tanto dbes revisar que se adapta a tus necesidades y, en caso contrario, realizar las modificaciones oportunas.
 
-SDP Cookies Press se distribuye aunque su configuración se debe realizar dandose de alta en el sitio (http://welcome.smartdataprotection.eu/store/cookies "SDPCookies")
+SDP Cookies Press se distribuye aunque su configuración se debe realizar dandose de alta en el sitio [SDPCookies](http://welcome.smartdataprotection.eu/store/cookies "SDPCookies")
 
 **Nota importante **
 
-Necesitarás obtener una APIKey desde el sitio [SDPCookies Wordpress](http://welcome.smartdataprotection.eu/store/cookies "SDPCookies") para usar este plugin. Las licencias disponibles son las listadas anteriormente.
-
-Desde la solución [SDP](http://welcome.smartdataprotection.eu/es/sdp/ "SDP") podrás obtener más información sobre las cookies que usa tu sitio e información adicional. Para ello, debes asegurarte de tener bien configurada la APIKey del plugin.
+Necesitarás obtener una APIKey desde el sitio [SDPCookies](http://welcome.smartdataprotection.eu/store/cookies "SDPCookies") para usar este plugin. Las licencias disponibles son las listadas anteriormente.
 
 == Installation ==
 
@@ -47,8 +45,8 @@ Se puede personalizar tanto el texto del plugin como del aviso legal, si bien la
 
 == Screenshots ==
 
-'/assets/screenshot-1.png'
-'/assets/screenshot-2.png'
+'Vista del banner de cookies generado en una web de ejemplo'
+'Vista del plugin SDPCookies'
 
 == Changelog ==
 
