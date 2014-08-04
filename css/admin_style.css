@@ -1,0 +1,105 @@
+hr {
+    margin: 30px 0;
+    width: 90%;
+}
+a.sdp_link {
+    color: #fff;
+    background-color: #428bca;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+form#sdpCookiesForm {
+    max-width: 1000px;
+}
+form#sdpCookiesForm textarea {
+    width: 100%;
+}
+form#sdpCookiesForm input[type="url"],
+form#sdpCookiesForm input[type="text"] {
+    max-width: 400px;
+    padding: 8px;
+    width: 100%;
+}
+form#sdpCookiesForm input[type="submit"] {
+    color: #fff;
+    background-color: #428bca;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+form#sdpCookiesForm figure img {
+    max-width: 100%;
+}
+.img_logo {
+    padding-top: 40px;
+}
+.img_cookies_friend {
+    float: left;
+}
+.sdp_cookies_plugin_intro {
+
+}
+.sdp_cookies_introtext {
+    background-color: #FEFEFE;
+    box-shadow: 0 3px 6px #333;
+    border: 3px solid #333;
+    border-radius: 18px;
+    margin-right: 200px;
+    max-width: 500px;
+    padding: 6px 20px;
+}
+div.updated.sdp_cookies_notice,
+.wrap div.updated.sdp_cookies_notice {
+    background: transparent;
+    border: 1px solid #428bca;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+div.updated.sdp_cookies_notice a.sdp_link,
+.wrap div.updated.sdp_cookies_notice a.sdp_link {
+    float: left;
+    margin-right: 8px;
+}
+div.updated.sdp_cookies_notice p,
+.wrap div.updated.sdp_cookies_notice p {
+    float: left;
+}
+div.updated.sdp_cookies_notice img,
+.wrap div.updated.sdp_cookies_notice img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: .3;
+}
+#ipTable table,
+#cookiesTable table{
+    color: #428bca;
+    max-width: 400px;
+    width: 80%;
+}
+#ipTable table thead,
+#cookiesTable table thead {
+    background: #428bca;
+}
+#ipTable table thead th,
+#cookiesTable table thead th{
+    color: #fefefe;
+    font-size: 12px;
+    padding: 10px 8px;
+}
+#ipTable table tbody td,
+#cookiesTable table tbody td{
+    font-size: 12px;
+    padding: 10px 8px;
+}
+.sdp_warning {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    max-width: 790px;
+}
