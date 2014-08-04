@@ -14,6 +14,15 @@ La solución más elegante para el cumplimiento de la ley de Cookies, de una for
 
 Con SDPCookiesPress podrás cumplir con la ley de cookies al 100% ya que realiza todas las acciones requeridas: muestra banner de consentimiento en la web, bloquea las cookies afectadas y proporciona los textos legales sobre política de cookies. Y lo mejor de todo: es GRATUITO
 
+Características Principales:
+
+* Bloquea las cookies afectadas por la ley
+* Integración con Google analytics
+* Distintas opciones de configuración
+* Múltiples modos de consentimiento
+* Genera automáticamente la página del aviso legal de cookies
+* Se deben mantener las imágenes y links de Smart Data Protection
+
 Simplemente te recordamos que al tratarse de una solución automatizada y editable por el usuario, no podemos hacernos responsable de su correcto uso ni de las modificaciones que se puedan realizar por parte de los usuarios. Si necesitas más información puedes vistar nuestra página web http://welcome.smartdataprotection.eu/store/cookies
 
 Es tú responsabilidad revisar todos los texto y funcionalidad del plugin. Se trata de un sistema automatizado y por tanto dbes revisar que se adapta a tus necesidades y, en caso contrario, realizar las modificaciones oportunas.
@@ -45,8 +54,8 @@ Se puede personalizar tanto el texto del plugin como del aviso legal, si bien la
 
 == Screenshots ==
 
-'Vista del banner de cookies generado en una web de ejemplo'
-'Vista del plugin SDPCookies'
+1. Vista del banner de cookies generado en una web de ejemplo
+2. Vista del plugin SDPCookies
 
 == Changelog ==
 
@@ -58,16 +67,3 @@ Se puede personalizar tanto el texto del plugin como del aviso legal, si bien la
 == Upgrade Notice ==
 
 Todo comentario, ruego o sugerencia será bien recibido. No dudes en contactar con nosotros a través de nuestra página web http://smartdataprotection.eu o de nuestro canal de Twitter https://www.twitter.com/sdataprotection.
-
-== Caracter&#237;sticas ==
-
-Características Principales:
-
-*Bloquea las cookies afectadas por la ley
-*Integración con Google analytics
-*Distintas opciones de configuración
-*Modificable al gusto del consumidor
-*Múltiples modos de consentimiento
-*Texto de consentimiento editable
-*Genera automáticamente la página del aviso legal de cookies
-*Se deben mantener las imágenes y links de Smart Data Protection
