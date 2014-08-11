@@ -92,6 +92,14 @@ function sdp_cookies (){
                     <input type="text" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255" required="required" />
                 </td>
             </tr>
+            <?php if($options['apiKey']=="") { ?>
+                <tr class="getLicense">
+                    <th scope="row"></th>
+                    <td>
+                        Obtén tu licencia GRATUITA registrándote en <a href="http://goo.gl/HqqGJR" title="sdpcookies">http://welcome.smartdataprotection.eu/store/cookies</a>
+                    </td>
+                </tr>
+            <?php } ?>
             <tr valign="top" class="ipTable" style="display: none;">
                 <th scope="row">Detalles del sitio web</th>
                 <td>
