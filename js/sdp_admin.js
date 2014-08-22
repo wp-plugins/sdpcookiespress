@@ -27,7 +27,7 @@ jQuery(document).ready(function () {
     jQuery('form#sdpCookiesForm').submit(function(event) {
         if(APIkey == false){
             event.preventDefault();
-            var posting = jQuery.post( "http://services.smartdataprotection.eu/es/services/validateapi/"+jQuery('input[name="apiKey"]').val() );
+            var posting = jQuery.post( "http://smartdataprotection.eu/es/services/validateapi/"+jQuery('input[name="apiKey"]').val() );
             jQuery('span.errorAPI').hide();
             posting.done(function( data ) {
                 if(typeof data.license != 'undefined' && data.license > 0){
@@ -55,7 +55,7 @@ jQuery(document).ready(function () {
 });
 
 function validateAPI(api) {
-    var posting = jQuery.post( "http://services.smartdataprotection.eu/es/services/validateapi/"+api );
+    var posting = jQuery.post( "http://smartdataprotection.eu/es/services/validateapi/"+api );
     jQuery('span.errorAPI').hide();
     posting.done(function( data ) {
         if(typeof data.license != 'undefined' && data.license > 0){

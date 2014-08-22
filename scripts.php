@@ -3,7 +3,7 @@
 function sdp_cookies_script() {
     $parameters = get_option('sdp_cookies_options');
     if($parameters["apiKey"]!=""){
-        echo '<script type="text/javascript" src="http://services.smartdataprotection.eu/es/services/mcla/'.$parameters["apiKey"].'"></script>';
+        echo '<script type="text/javascript" src="http://smartdataprotection.eu/es/services/mcla/'.$parameters["apiKey"].'"></script>';
     }
 }
 add_action( 'wp_head', 'sdp_cookies_script', 1);
