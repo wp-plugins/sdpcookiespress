@@ -20,7 +20,7 @@ Características Principales:
 * Integración con Google analytics
 * Distintas opciones de configuración
 * Múltiples modos de consentimiento
-* Genera automáticamente la página del aviso legal de cookies
+* Genera automáticamente el texto del aviso legal de cookies
 
 Simplemente te recordamos que al tratarse de una solución automatizada y editable por el usuario, no podemos hacernos responsable de su correcto uso ni de las modificaciones que se puedan realizar por parte de los usuarios. Si necesitas más información puedes vistar nuestra página web http://welcome.smartdataprotection.eu/store/cookies
 
@@ -61,6 +61,8 @@ La licencia es totalmente gratuita para su uso a través de Wordpress
 * Versión inicial.
 = 1.1 =
 * Versión de configuración para sitios Prestashop a través de la plataforma.
+= 1.2 =
+* Solucionado error de validación. Actualizado para los nuevos servicios de SDP.
 
 == Upgrade Notice ==
 
