@@ -63,6 +63,8 @@ La licencia es totalmente gratuita para su uso a través de Wordpress
 * Versión de configuración para sitios Prestashop a través de la plataforma.
 = 1.2 =
 * Solucionado error de validación. Actualizado para los nuevos servicios de SDP.
+= 1.3 =
+* Solucionado error en script.
 
 == Upgrade Notice ==
 
