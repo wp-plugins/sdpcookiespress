@@ -73,7 +73,7 @@ function sdp_cookies (){
     <div class="sdp_cookies_plugin_intro">
         <img class='img_cookies_friend' src='<?php echo plugins_url('/img/tu_amigo_cookies.png', __FILE__); ?>' />
         <div class="sdp_cookies_introtext">
-            <p>Este plugin permite configurar automáticamente el sitio web con las especificaciones indicadas en la plataforma Smart Data Protection. Si necesitas más información puedes vistar nuestra página web <a href="http://smartdataprotection.eu/store/cookies/" target="_blank">http://smartdataprotection.eu/cookies</a></p>
+            <p>Este plugin permite configurar automáticamente el sitio web con las especificaciones indicadas en la plataforma Smart Data Protection. Si necesitas más información puedes vistar nuestra página web <a href="http://goo.gl/UwC6L0" target="_blank">http://smartdataprotection.eu/es/store/cookies</a></p>
         </div>
     </div>
     <form method="post" id="sdpCookiesForm">
@@ -96,7 +96,7 @@ function sdp_cookies (){
                 <tr class="getLicense">
                     <th scope="row"></th>
                     <td>
-                        Obtén tu licencia GRATUITA registrándote en <a href="http://goo.gl/HqqGJR" title="sdpcookies">http://smartdataprotection.eu/store/cookies</a>
+                        Obtén tu licencia GRATUITA registrándote en <a href="http://goo.gl/UwC6L0" title="sdpcookies">http://smartdataprotection.eu/es/store/cookies</a>
                     </td>
                 </tr>
             <?php } ?>
