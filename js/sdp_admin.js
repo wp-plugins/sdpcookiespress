@@ -22,10 +22,12 @@ jQuery(document).ready(function () {
         }
     });
     jQuery('input[name="apiKey"]').change(function () {
-        validateAPI(jQuery(this).val());
+        if(jQuery('input[name="apiKey"]').val()!=""){
+            validateAPI(jQuery(this).val());
+        }
     });
     jQuery('form#sdpCookiesForm').submit(function(event) {
-        if(APIkey == false){
+        if(APIkey == false && jQuery('input[name="apiKey"]').val()!=""){
             event.preventDefault();
             var posting = jQuery.post( "http://smartdataprotection.eu/es/services/validateapi/"+jQuery('input[name="apiKey"]').val() );
             jQuery('span.errorAPI').hide();
@@ -48,8 +50,10 @@ jQuery(document).ready(function () {
     });
     jQuery(".addtionalInfo").on("click",function(event){
         event.preventDefault();
-        var apival = jQuery('input[name="apiKey"]').val();
-        validateAPI(apival);
+        if(jQuery('input[name="apiKey"]').val()!=""){
+            var apival = jQuery('input[name="apiKey"]').val();
+            validateAPI(apival);
+        }
     });
 
 });
@@ -79,8 +83,8 @@ function validateAPI(api) {
             return -1;
         }
     })
-    .fail(function(XMLHttpRequest, textStatus, errorThrown) {
-        jQuery('input[name="apiKey"]').after("<span class='errorAPI' style='color: red'>"+textStatus+"</span>");
-        return -1;
-    });
+        .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+            jQuery('input[name="apiKey"]').after("<span class='errorAPI' style='color: red'>"+textStatus+"</span>");
+            return -1;
+        });
 }

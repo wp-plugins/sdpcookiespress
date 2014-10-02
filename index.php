@@ -3,7 +3,7 @@
 Plugin Name: SDP Cookies Press
 Plugin URI: http://smartdataprotection.eu/store/cookies/wordpress
 Description: La forma más sencilla , rápida y económica de cumplir la "ley de cookies".
-Version: 1.3
+Version: 1.4
 Author: Smart Data Protection
 Author URI: http://smartdataprotection.eu
 License: GPL2

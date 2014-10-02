@@ -65,6 +65,8 @@ La licencia es totalmente gratuita para su uso a través de Wordpress
 * Solucionado error de validación. Actualizado para los nuevos servicios de SDP.
 = 1.3 =
 * Solucionado error en script.
+= 1.4 =
+* Solucionado problema validación API
 
 == Upgrade Notice ==
 
