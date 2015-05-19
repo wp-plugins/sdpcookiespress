@@ -2,31 +2,106 @@ hr {
     margin: 30px 0;
     width: 90%;
 }
+div.first_choice{
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1%;
+    width: 95%;
+    border: 1px solid #aaa;
+    text-align: center;
+
+}
+
+div.loading{
+    background-color: lightskyblue;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1%;
+    width: 95%;
+    border: 1px solid #aaa;
+    text-align: center;
+    color: #ffffff;
+    font-weight:bold;
+
+}
+div.first_choice button{
+    color: #fff;
+    background-color: #4CAAE0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 50%;
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+div.register_new{
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1%;
+    width: 95%;
+    border: 1px solid #aaa;
+}
+
+div.api_table{
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1%;
+    width: 95%;
+    border: 1px solid #aaa;
+}
+table.register_table{
+    width: 100%;
+    border-spacing:  7px;
+    font-size: 14px;
+
+}
+
+table.api_table{
+    width: 100%;
+    border-spacing:  7px;
+    font-size: 14px;
+
+}
+
 a.sdp_link {
     color: #fff;
-    background-color: #428bca;
+    background-color: #4CAAE0;
     border-radius: 4px;
     padding: 10px 15px;
     text-decoration: none;
 }
 form#sdpCookiesForm {
-    max-width: 1000px;
+    max-width: 100%;
 }
 form#sdpCookiesForm textarea {
     width: 100%;
 }
 form#sdpCookiesForm input[type="url"],
 form#sdpCookiesForm input[type="text"] {
-    max-width: 400px;
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+form#sdpCookiesForm select{
     padding: 8px;
     width: 100%;
 }
+
 form#sdpCookiesForm input[type="submit"] {
     color: #fff;
-    background-color: #428bca;
+    background-color: #4CAAE0;
     border-radius: 4px;
     padding: 10px 15px;
     text-decoration: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
 }
 form#sdpCookiesForm figure img {
     max-width: 100%;
@@ -52,7 +127,7 @@ form#sdpCookiesForm figure img {
 div.updated.sdp_cookies_notice,
 .wrap div.updated.sdp_cookies_notice {
     background: transparent;
-    border: 1px solid #428bca;
+    border: 1px solid #4CAAE0;
     padding: 10px;
     position: relative;
     overflow: hidden;
@@ -75,13 +150,13 @@ div.updated.sdp_cookies_notice img,
 }
 #ipTable table,
 #cookiesTable table{
-    color: #428bca;
-    max-width: 400px;
-    width: 80%;
+    color: #4CAAE0;
+    max-width: 100%;
+    width: 100%;
 }
 #ipTable table thead,
 #cookiesTable table thead {
-    background: #428bca;
+    background: #4CAAE0;
 }
 #ipTable table thead th,
 #cookiesTable table thead th{
@@ -91,6 +166,7 @@ div.updated.sdp_cookies_notice img,
 }
 #ipTable table tbody td,
 #cookiesTable table tbody td{
+
     font-size: 12px;
     padding: 10px 8px;
 }
