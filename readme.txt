@@ -8,11 +8,11 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-La solución más elegante para el cumplimiento de la ley de Cookies, de una forma rápida, sencilla y gratuita.
+La solución profesional para el cumplimiento de la ley de Cookies. Detectamos las cookies, generamos los textos legales e incluimos el banner, en múltiples idiomas.
 
 == Description ==
 
-Con SDPCookiesPress podrás cumplir con la ley de cookies al 100% ya que realiza todas las acciones requeridas: muestra banner de consentimiento en la web, bloquea las cookies afectadas y proporciona los textos legales sobre política de cookies. Y lo mejor de todo: es GRATUITO
+Con SDPCookiesPress podrás cumplir con la ley de cookies al 100% ya que realiza todas las acciones requeridas: muestra banner de consentimiento en la web, bloquea las cookies afectadas y proporciona los textos legales sobre política de cookies. Y todo ello en múltiples idiomas.
 
 Características Principales:
 
