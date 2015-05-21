@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-La solución profesional para el cumplimiento de la ley de Cookies. Detectamos las cookies, generamos los textos legales e incluimos el banner, en múltiples idiomas.
+La solución profesional para el cumplimiento de la ley de Cookies. Detectamos las cookies, generamos los textos legales e incluimos el banner.
 
 == Description ==
 
