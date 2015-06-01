@@ -67,6 +67,8 @@ La licencia es totalmente gratuita para su uso a través de Wordpress
 * Solucionado error en script.
 = 1.4 =
 * Solucionado problema validación API
+= 2.0 =
+* Nuevo registro automático desde el plugin
 
 == Upgrade Notice ==
 

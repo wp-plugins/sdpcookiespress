@@ -1,4 +1,5 @@
 <?php
+
 if(isset($_POST['content']) AND isset($_POST['common_url']))
 {
     sdp_update_cache($_POST['content'], $_POST['common_url']);

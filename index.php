@@ -1,9 +1,15 @@
 <?php
+    //if(isset($_POST['go']))
+    //{
+    //    updateDateend($_POST['apiKey']);
+    //}
+
+
 /*
 Plugin Name: SDP Cookies Press
 Plugin URI: http://smartdataprotection.eu/store/cookies/wordpress
 Description: La forma más sencilla , rápida y económica de cumplir la "ley de cookies".
-Version: 1.4
+Version: 2.0
 Author: Smart Data Protection
 Author URI: http://smartdataprotection.eu
 License: GPL2
@@ -14,6 +20,7 @@ function get_sdp_cookie_defaults () {
     $options = $parameters = get_option('sdp_cookies_options');
     $parameters = array(
         'apiKey' => '',
+        'dateEnd' => '',
         'mail' => '',
         'license' => '',
         'notice' => 'Al utilizar nuestro sitio web, consiente nuestro uso de cookies de acuerdo con nuestra política de cookies.',
@@ -58,6 +65,7 @@ function sdp_cookies (){
         $parameters['apiKey'] = strip_tags(stripslashes($_POST["apiKey"]));
         $parameters['style'] = strip_tags(stripslashes($_POST["style"]));
         $parameters['consentmodel'] = strip_tags(stripslashes($_POST["consentmodel"]));
+        $parameters['dateEnd'] = strip_tags(stripslashes($_POST["dateEnd"]));
 
     }
 
@@ -69,7 +77,7 @@ function sdp_cookies (){
 
     <header>
         <img class='img_logo' src='<?php echo plugins_url('/img/logo_sdp_complet_hor_300.png', __FILE__); ?>' />
-        <h3>La solución más elegante para el cumplimiento de la <strong>ley de Cookies</strong>, de una forma rápida, sencilla y económica.</h3>
+        <h3>La solución profesional para cumplir la  <strong>"ley de Cookies"</strong>.</h3>
     </header>
 
     <div class="first_choice" style="display: none;">
@@ -152,6 +160,7 @@ function sdp_cookies (){
                 <tr>
                     <td>
                         <input type="text" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255"/>
+                        <input type="hidden" name="dateEnd" value="<?php echo $options['dateEnd'] ?>" size="255"/>
                     </td>
                 </tr>
             </table>
@@ -167,7 +176,6 @@ function sdp_cookies (){
         </form>
 
     </div>
-
     <div class="api_table" style="display: none;">
         <table>
             <tr>
@@ -181,16 +189,90 @@ function sdp_cookies (){
                 <td>
                     <?php
                     if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
-                        echo '<p> <strong>Si quieres para cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong></p>';
+                        echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong></p>';
                     }else{
                         echo '<p><strong>¡Además te puedes sentir orgulloso al cumplir al 100% con la ley!</strong></p>';
                     }
                     ?>
                 </td>
             </tr>
+            <tr>
+                <td><a href="http://smartdataprotection.eu/es/legal/cpc/cookies/"> Condiciones de contratación de SDP COOKIES</a></td>
+            </tr>
 
 
         </table>
+    </div>
+    <br>
+    <div class="api_table dateend" style="display: none">
+        <form action="<?php updateDateend($options['apiKey']); ?>" method="post">
+            <h4>Tú licencia termina el: <?php echo $options['dateEnd'] ?></h4>
+            <input type="hidden" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255"/>
+<!--            <input type="submit" name="go" class="update" value="Actualizar" />-->
+        </form>
+        <br>
+        <a id="pricingLink" class="sdp_link">Descubre por qué utilizar SDP y no un plugin cualquier otro gratuito</a>
+        <!-- comparing table -->
+        <div id="pricingTable" class="tsc_pricingtable03 tsc_pt3_style1" style="display: none;">
+            <div class="caption_column">
+                <ul>
+                    <li class="header_row_1 align_center radius5_topleft"></li>
+                    <li class="header_row_2">
+                        <h2 class="caption">Requisitos legales</h2>
+                    </li>
+                    <li class="row_style_4"><span>Mostrar banner aviso</span></li>
+                    <li class="row_style_2"><span>Crear textos legales</span></li>
+                    <li class="row_style_4"><span>Detallar las cookies utilizadas</span></li>
+                    <li class="row_style_2"><span class="subtitle">-- Funcionalidades avanzadas --</span></li>
+                    <li class="row_style_4"><span>Detectar las cookies autom.</span></li>
+                    <li class="row_style_2"><span>Textos legales multidioma (es, en, fr, de, it)</span></li>
+                    <li class="row_style_4"><span>Actualizar ante cambios leyes</span></li>
+                    <li class="row_style_2"><span>Escanéo autom. de la web</span></li>
+                    <!--                <li class="footer_row"></li>-->
+                </ul>
+            </div>
+            <div class="column_1">
+                <ul>
+                    <li class="header_row_1 align_center">
+                        <h2 class="col1">Otros</h2>
+                    </li>
+                    <li class="header_row_2 align_center">
+                        <h1 class="col1">Gratis</h1>
+                        <h3 class="col1">¿Seguro?</h3>
+                    </li>
+                    <li class="row_style_3 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_1 align_center">Algunos</li>
+                    <li class="row_style_3 align_center"><span class="pricing_no"></span></li>
+                    <li class="row_style_1 align_center"></li>
+                    <li class="row_style_3 align_center"><span class="pricing_no"></span></li>
+                    <li class="row_style_1 align_center"><span class="pricing_no"></span></li>
+                    <li class="row_style_3 align_center"><span class="pricing_no"></span></li>
+                    <li class="row_style_1 align_center"><span class="pricing_no"></span></li>
+                    <!--                <li class="footer_row"></li>-->
+                </ul>
+            </div>
+            <div class="column_3">
+                <ul>
+                    <li class="header_row_1 align_center">
+                        <h2 class="col3">SDP Cookies</h2>
+                    </li>
+                    <li class="header_row_2 align_center">
+                        <h1 class="col3"><span>29</span>€</h1>
+                        <h3 class="col3">por año</h3>
+                    </li>
+                    <li class="row_style_4 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_2 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_4 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_2 align_center"></li>
+                    <li class="row_style_4 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_2 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_4 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_2 align_center"><span class="pricing_yes"></span></li>
+                    <!--                <li class="footer_row"><a href="" class="tsc_buttons2 grey">sign up!</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <!-- comparing table -->
     </div>
 
 <?php
@@ -240,6 +322,43 @@ function create_new_page() {
     add_option( 'sdp_cookies_page_id', $page_id );
 //    }
 }
+
+function updateDateend ($api){
+//    echo($api);
+
+    $ch = curl_init();
+
+    $data = array(
+        'apiKey' => $api
+    );
+
+    $data_string = json_encode($data);
+
+    // Setting options
+
+    curl_setopt($ch, CURLOPT_URL,"https://smartdataprotection.eu/es/services/getDateend");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $sdp_response = curl_exec ($ch);
+
+    // cerramos la sesión cURL
+    curl_close ($ch);
+
+//    echo $sdp_response;
+    $obj = json_decode($sdp_response);
+    $dateend = $obj->{'dateend'};
+
+    //receive the dateend and update the wordpress variable
+    $options = $parameters = get_option('sdp_cookies_options');
+    $parameters['dateEnd'] = $dateend;
+    if ( $options != $parameters ) {
+        $options = $parameters;
+        update_option('sdp_cookies_options', $options);
+    }
+}
+
 
 require('view.php');
 

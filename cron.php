@@ -73,7 +73,7 @@ function checkScript()
 
 
                     // Setting options
-                    curl_setopt($ch, CURLOPT_URL,"http://test2.smartdataprotection.eu/es/services/block_cookies_wordpress");
+                    curl_setopt($ch, CURLOPT_URL,"http://smartdataprotection.eu/es/services/block_cookies_wordpress");
                     curl_setopt($ch, CURLOPT_POST, 1);
                     curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

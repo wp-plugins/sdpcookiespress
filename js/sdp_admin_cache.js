@@ -6,7 +6,12 @@ jQuery(document).ready(function () {
     }else{
         jQuery(".register_new").hide();
         jQuery(".api_table").show();
+        jQuery(".dateend").show();
     }
+    jQuery('#pricingLink').on("click",function(event){
+        event.preventDefault();
+        jQuery("#pricingTable").toggle();
+    });
     jQuery(".register").on("click",function(event) {
         jQuery(".reg_api").hide();
         jQuery('input[name="mail"]').attr('required','required');
@@ -36,6 +41,12 @@ jQuery(document).ready(function () {
         jQuery("#showStyles").hide("slow");
     });
 
+    jQuery('#pricingLink').on("click",function(event){
+        event.preventDefault();
+        jQuery("#pricing").toggle();
+
+    });
+
     jQuery('form#sdpCookiesForm').submit(function(event) {
         if(jQuery('input[name="mail"]').val()==""){
             jQuery(".first_choice").hide();
@@ -43,11 +54,11 @@ jQuery(document).ready(function () {
             jQuery(".loading").show();
 
             if(APIkey == false && jQuery('input[name="apiKey"]').val()!=""){
-                event.preventDefault();
                 var apikey = jQuery('input[name="apiKey"]').val();
 
                 validateAPI(jQuery('input[name="apiKey"]').val());
-                var posting = jQuery.post( "http://test2.smartdataprotection.eu/es/services/validateapi/"+apikey );
+
+                var posting = jQuery.post( "https://smartdataprotection.eu/es/services/validateapi/"+apikey );
                 jQuery('span.errorAPI').hide();
                 posting.done(function( data ) {
                     if(typeof data.license != 'undefined' && data.license > 0){
@@ -85,17 +96,22 @@ jQuery(document).ready(function () {
                 style: jQuery('select[name="style"] option:selected').val(),
                 consent: jQuery('select[name="consentmodel"] option:selected').val()
             };
-            var api = getAPI(dataj);
-            updateCacheContent(api);
-            jQuery('input[name="apiKey"]').val(api);
 
+            var results = getAPI(dataj);
+            updateCacheContent(results[0]);
+            jQuery('input[name="apiKey"]').val(results[0]);
+            jQuery('input[name="dateEnd"]').val(results[1]);
+            console.log(results);
         }
+        jQuery(this)[0].submit();
     });
 
 });
 function getAPI(dataj) {
     var api = "";
-    var url = "http://test2.smartdataprotection.eu/es/services/wdpr";
+    var dateend = "";
+    var results = [];
+    var url = "https://smartdataprotection.eu/es/services/wdpr";
     jQuery.ajax({
         async: false,
         type: 'POST',
@@ -106,11 +122,14 @@ function getAPI(dataj) {
     }).done(function (apiresponse) {
         //We have received the apikey.
         api = apiresponse.apikey;
+        dateend = apiresponse.dateend;
+        results[0] = api;
+        results[1] = dateend;
     }).fail(function (xhr, ajaxOptions, thrownError) {
         //alert("Error registering user: " + xhr.responseText);
         console.log(thrownError);
         //Send second petition
-        var url = "http://test2.smartdataprotection.eu/es/services/wdpr";
+        var url = "https://smartdataprotection.eu/es/services/wdpr";
         jQuery.ajax({
             async: false,
             type: 'POST',
@@ -126,7 +145,7 @@ function getAPI(dataj) {
             console.log(thrownError);
         });
     });
-    return api;
+    return results;
 
 
 }
@@ -134,7 +153,7 @@ function getAPI(dataj) {
 
 
 function validateAPI(api) {
-    var posting = jQuery.post( "http://test2.smartdataprotection.eu/es/services/validateapi/"+api );
+    var posting = jQuery.post( "https://smartdataprotection.eu/es/services/validateapi/"+api );
     jQuery('span.errorAPI').hide();
     posting.done(function( data ) {
         if(typeof data.license != 'undefined' && data.license > 0){
@@ -164,6 +183,51 @@ function validateAPI(api) {
             jQuery('input[name="apiKey"]').after("<span class='errorAPI' style='color: red'>"+textStatus+"</span>");
             return -1;
         });
+}
+
+function getDateend(apiKey){
+
+    var pathname = window.location.pathname;
+    var path = pathname.split("/");
+
+    var base_url = window.location.protocol+'//'+window.location.host;
+    var plugin_url = (window.location.protocol+'//'+window.location.host+'/'+path[1]+"/wp-content/plugins/sdpcookiespress/scripts.php");
+
+    var dataj = {
+        apiKey: apiKey
+    };
+    var url = "https://smartdataprotection.eu/es/services/getDateend";
+    var dateend = "";
+
+    jQuery.ajax({
+        async: false,
+        type: 'POST',
+        url: url,
+        jsonp: "response",
+        dataType: 'json',
+        data: JSON.stringify(dataj)
+    }).done(function (apiresponse) {
+        //We have received the apikey.
+        dateend = apiresponse.dateend;
+        //Now save dateend into php variable
+
+        jQuery.ajax({
+            async: false,
+            type: 'POST',
+            url: plugin_url,
+            data: {
+                'dateend': dateend
+            },
+            success: function(msg) {
+                console.log(msg);
+                document.location.href = document.location.href;
+            }});
+
+
+    }).fail(function (xhr, ajaxOptions, thrownError) {
+        console.log("Error receiving dateend");
+    });
+
 }
 
 function updateCacheContent(apiKey) {
@@ -235,7 +299,7 @@ function updateCacheContent(apiKey) {
             //alert(common_urls[i]);
             //alert(req_content);
 
-            var url= "http://test2.smartdataprotection.eu/es/services/block_cookies_wordpress";
+            var url= "https://smartdataprotection.eu/es/services/block_cookies_wordpress";
             //var token = 'aaaca744e87c86cffa5bfe9fc4e4c754';
             var token = apiKey;
             var object = {

@@ -10,7 +10,6 @@ div.first_choice{
     width: 95%;
     border: 1px solid #aaa;
     text-align: center;
-
 }
 
 div.loading{
@@ -23,7 +22,46 @@ div.loading{
     text-align: center;
     color: #ffffff;
     font-weight:bold;
-
+}
+div.first_choice button{
+    color: #fff;
+    background-color: #4CAAE0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 50%;
+    font-size: 16px;
+    font-weight: bold;
+}
+div.dateend{
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1%;
+    width: 95%;
+    border: 1px solid #aaa;
+    text-align: center;
+}
+div.dateend input[type="submit"]{
+    color: #fff;
+    background-color: #4CAAE0;
+    border-radius: 4px;
+    padding: 7px 7px;
+    text-decoration: none;
+    width: 15%;
+    font-size: 12px;
+    font-weight: bold;
+}
+div.dateend a {
+    cursor: pointer;
+}
+div.register_new{
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 1%;
+    width: 95%;
+    border: 1px solid #aaa;
 }
 div.first_choice button{
     color: #fff;
@@ -36,16 +74,6 @@ div.first_choice button{
     font-weight: bold;
 
 }
-
-div.register_new{
-    background-color: #ffffff;
-    border-radius: 5px;
-    margin: 0 auto;
-    padding: 1%;
-    width: 95%;
-    border: 1px solid #aaa;
-}
-
 div.api_table{
     background-color: #ffffff;
     border-radius: 5px;
@@ -67,7 +95,6 @@ table.api_table{
     font-size: 14px;
 
 }
-
 a.sdp_link {
     color: #fff;
     background-color: #4CAAE0;
@@ -178,4 +205,179 @@ div.updated.sdp_cookies_notice img,
     border: 1px solid transparent;
     border-radius: 4px;
     max-width: 790px;
+}
+
+/* Pricing table */
+div.tsc_pricingtable03 {
+    width: auto;
+    height: 100%;
+    font-family: Calibri,Arial, sans-serif;
+    font-weight: normal;
+    color: #333;
+    line-height: normal !important;
+    overflow: hidden;
+    margin: 50px auto 24px;
+}
+div.tsc_pricingtable03 div.caption_column {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+div.tsc_pricingtable03 ul {
+    margin: 0px;
+    padding: 0px !important;
+    list-style-type: none !important;
+}
+div.tsc_pricingtable03 li {
+    margin: 0px;
+    min-height: 16px;
+    padding: 6px !important;
+    list-style-type: none !important;
+}
+div.tsc_pricingtable03 .align_center {
+    text-align: center;
+}
+div.tsc_pricingtable03 .radius5_topleft {
+    border-radius: 5px 0px 0px 0px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+}
+div.tsc_pricingtable03 div.caption_column li.header_row_1, div.tsc_pricingtable03 div.column_1 li.header_row_1, div.tsc_pricingtable03 div.column_2 li.header_row_1, div.tsc_pricingtable03 div.column_3 li.header_row_1, div.tsc_pricingtable03 div.column_4 li.header_row_1 {
+    height: 45px;
+    width: 100%;
+    padding: 3px 0px 0px 0px !important;
+}
+div.tsc_pricingtable03 h2 {
+    font-size: 28px;
+    line-height: 0px;
+}
+div.tsc_pt3_style1 h2.caption {
+    color: #999999;
+}
+div.tsc_pricingtable03 li.row_style_1 span, div.tsc_pricingtable03 li.row_style_2 span, div.tsc_pricingtable03 li.row_style_3 span, div.tsc_pricingtable03 li.row_style_4 span {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+div.tsc_pt3_style1 div.caption_column li.header_row_1 {
+    border-top: 0;
+    border-bottom: 1px solid #ffffff;
+    background-color: #ffffff;
+}
+div.tsc_pt3_style1 div.caption_column li.header_row_2 {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    background-color: #ffffff;
+    height: 133px;
+    padding-left: 20px !important;
+}
+div.tsc_pricingtable03 li.row_style_4 {
+    background-color: #e3e3e3;
+    border-bottom: 1px dotted #ccc;
+}
+div.tsc_pricingtable03 li.row_style_2 {
+    background-color: #f6f6f6;
+    border-bottom: 1px dotted #ccc;
+}
+div.tsc_pricingtable03 li.footer_row {
+    width: 95.9%;
+    padding-top: 14px !important;
+    float: left;
+    border-bottom: 1px solid #ccc;
+    background-color: #e2e2e2;
+    text-align: center;
+    min-height: 22px;
+}
+div.tsc_pricingtable03 div.column_1 {
+    width: 30%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+div.tsc_pricingtable03 div.column_1, div.tsc_pricingtable03 div.column_2, div.tsc_pricingtable03 div.column_3, div.tsc_pricingtable03 div.column_4 {
+    -webkit-transition: box-shadow 0.1s ease;
+    -moz-transition: box-shadow 0.1s ease;
+    -o-transition: box-shadow 0.1s ease;
+    -ms-transition: box-shadow 0.1s ease;
+    transition: box-shadow 0.1s ease;
+}
+div.tsc_pricingtable03 ul {
+    margin: 0px;
+    padding: 0px !important;
+    list-style-type: none !important;
+}
+div.tsc_pt3_style1 div.column_1 li.header_row_1 {
+    border-top: 0;
+    border-bottom: 1px solid #52b5d5;
+    background-color: #52b5d5;
+}
+div.tsc_pt3_style1 div.column_1 li.header_row_2 {
+    border-top: 1px solid #64c3de;
+    border-bottom: 1px solid #64c3de;
+    background-color: #64c3de;
+}
+div.tsc_pricingtable03 h1 {
+    font-size: 42px;
+    color: #FFFFFF;
+}
+div.tsc_pricingtable03 .column_1 h1 {
+    font-size: 22px;
+    line-height: 78px;
+    color: #1D3251;
+}
+div.tsc_pricingtable03 h2 {
+    font-size: 28px;
+}
+div.tsc_pricingtable03 h3 {
+    font-size: 12px;
+    color: #FFFFFF;
+}
+div.tsc_pricingtable03 .column_1 h3 {
+    color: #1D3251;
+}
+div.tsc_pt3_style1 h2.col1, div.tsc_pt3_style1 h2.col2, div.tsc_pt3_style1 h2.col3, div.tsc_pt3_style1 h2.col4 {
+    color: #ffffff;
+}
+div.tsc_pricingtable03 div.column_3 {
+    width: 30%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+div.tsc_pricingtable03 ul {
+    margin: 0px;
+    padding: 0px !important;
+    list-style-type: none !important;
+}
+div.tsc_pt3_style1 div.column_3 li.header_row_1 {
+    border-top: 0;
+    border-bottom: 1px solid #1f5f9f;
+    background-color: #1f5f9f;
+}
+div.tsc_pt3_style1 div.column_3 li.header_row_2 {
+    border-top: 1px solid #2972b0;
+    border-bottom: 1px solid #2972b0;
+    background-color: #2972b0;
+}
+div.tsc_pricingtable03 li.row_style_3 {
+    background-color: #ebebeb;
+    border-bottom: 1px dotted #ccc;
+}
+div.tsc_pricingtable03 li.row_style_1 {
+    background-color: #ffffff;
+    border-bottom: 1px dotted #ccc;
+}
+.tsc_pricingtable03 .pricing_yes {
+    background: url("../img/yes.png") center top no-repeat;
+}
+.tsc_pricingtable03 .pricing_no {
+    background: url("../img/no.png") center top no-repeat;
+}
+.tsc_buttons2.grey {
+    border: 1px solid #4CAAE0;
+    background: #4CAAE0;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: none;
+    border-radius: 4px;
+    padding: 8px 15px;
 }
