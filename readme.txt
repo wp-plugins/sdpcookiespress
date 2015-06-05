@@ -69,6 +69,8 @@ La licencia es totalmente gratuita para su uso a través de Wordpress
 * Solucionado problema validación API
 = 2.0 =
 * Nuevo registro automático desde el plugin
+= 2.0.1 =
+* Hook para solucionar problema de compatibilidad con plugins de cache
 
 == Upgrade Notice ==
 

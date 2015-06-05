@@ -9,7 +9,7 @@
 Plugin Name: SDP Cookies Press
 Plugin URI: http://smartdataprotection.eu/store/cookies/wordpress
 Description: La forma más sencilla , rápida y económica de cumplir la "ley de cookies".
-Version: 2.0
+Version: 2.0.1
 Author: Smart Data Protection
 Author URI: http://smartdataprotection.eu
 License: GPL2
@@ -22,6 +22,7 @@ function get_sdp_cookie_defaults () {
         'apiKey' => '',
         'dateEnd' => '',
         'mail' => '',
+        'mode' => '',
         'license' => '',
         'notice' => 'Al utilizar nuestro sitio web, consiente nuestro uso de cookies de acuerdo con nuestra política de cookies.',
         'consentmodel' => '',
@@ -145,7 +146,12 @@ function sdp_cookies (){
                         </select>
                     </td>
                 </tr>
-
+            <tr>
+                <td>
+                    <br>
+                    <input name="check" type="checkbox" required="required"> Acepto la <a href="http://smartdataprotection.eu/es/services/static/privacy_policy/bb8828bd2f4383fb2a3318f7d6227ecb">Política de privacidad</a> el <a href="http://smartdataprotection.eu/es/services/static/legal_advice/bb8828bd2f4383fb2a3318f7d6227ecb">Aviso Legal</a> y <a href="http://smartdataprotection.eu/es/legal/cpc/cookies/"> las Condiciones de contratación de SDP COOKIES</a> <br>
+                </td>
+            </tr>
 
             </table>
 
@@ -180,39 +186,62 @@ function sdp_cookies (){
         <table>
             <tr>
                 <td>
-                    <h2>¡Enhorabuena! Ya estás cumpliendo con la ley de cookies!</h2>
-                    <p>Ya tienes instalado el banner de cookies y los textos del aviso legal. <strong>Te hemos dado ¡un mes de prueba gratis!</strong></p>
+                    <h2>¡Enhorabuena! Ya tienes listo tu banner de cookies y los textos legales!</h2>
                     <p> Recuerda que debes insertar el link al aviso de cookies (<code>&lt;a href="#" id="sdpCookiesAdviceLink" class="cookiesinfo">Aviso de cookies&lt;/a></code>) en todas las páginas. Un buen sitio puede ser el footer o pie de página. </p>
                 </td>
             </tr>
-            <tr>
-                <td>
-                    <?php
-                    if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
-                        echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong></p>';
-                    }else{
-                        echo '<p><strong>¡Además te puedes sentir orgulloso al cumplir al 100% con la ley!</strong></p>';
-                    }
-                    ?>
-                </td>
-            </tr>
-            <tr>
-                <td><a href="http://smartdataprotection.eu/es/legal/cpc/cookies/"> Condiciones de contratación de SDP COOKIES</a></td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    --><?php
+//                    if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
+//                        echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong></p>';
+//                    }else{
+//                        echo '<p><strong>¡Además te puedes sentir orgulloso al cumplir al 100% con la ley!</strong></p>';
+//                    }
+//                    ?>
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><a href="http://smartdataprotection.eu/es/legal/cpc/cookies/"> Condiciones de contratación de SDP COOKIES</a></td>-->
+<!--            </tr>-->
 
 
         </table>
     </div>
     <br>
     <div class="api_table dateend" style="display: none">
+        <?php
+        if ( (is_plugin_active('wp-fastest-cache/wpFastestCache.php')) AND $options['mode'] == 1){
+            echo '<p><strong>¡Estamos bloqueando tus cookies! Te puedes sentir orgulloso al cumplir al 100% con la ley.</strong></p>';
+        }else{
+            echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita que habilites el bloqueo de cookies e instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong>. En caso de que tengas algún problema con el plugin, no selecciones esta opción y ponte en contacto con nosotros en <a href="mailto:soporte@smartdataprotection.eu">soporte@smartdataprotection.eu</a> </p>';
+        }
+        ?>
+        <form action="<?php simpleMode(); ?>" method="post">
+            <?php
+            if ($options['mode'] == 1){
+                echo '<input name="cacheMode" type="checkbox" value="Yes" checked> Habilitar bloqueo de cookies con plugin de caché </input>';
+            }else{
+                echo '<input name="cacheMode" type="checkbox" value="Yes"> Habilitar bloqueo de cookies con plugin de caché </input>';
+            } ?>
+
+            <br>
+            <br>
+            <input type="submit" name="go" class="sdp_link" value="Guardar" />
+        </form>
+    </div>
+    <br>
+    <div class="api_table dateend" style="display: none">
         <form action="<?php updateDateend($options['apiKey']); ?>" method="post">
             <h4>Tú licencia termina el: <?php echo $options['dateEnd'] ?></h4>
-            <input type="hidden" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255"/>
+            <input type="hidden" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255">
 <!--            <input type="submit" name="go" class="update" value="Actualizar" />-->
         </form>
         <br>
+
         <a id="pricingLink" class="sdp_link">Descubre por qué utilizar SDP y no un plugin cualquier otro gratuito</a>
         <!-- comparing table -->
+
         <div id="pricingTable" class="tsc_pricingtable03 tsc_pt3_style1" style="display: none;">
             <div class="caption_column">
                 <ul>
@@ -274,6 +303,7 @@ function sdp_cookies (){
         </div>
         <!-- comparing table -->
     </div>
+    <br>
 
 <?php
 }
@@ -359,6 +389,19 @@ function updateDateend ($api){
     }
 }
 
+function simpleMode (){
+    $options = $parameters = get_option('sdp_cookies_options');
+
+    if(isset($_POST['cacheMode']) && $_POST['cacheMode'] == 'Yes') {
+        $parameters['mode'] = 1;
+    } else {
+        $parameters['mode'] = 0;
+    }
+    if ( $options != $parameters ) {
+        $options = $parameters;
+        update_option('sdp_cookies_options', $options);
+    }
+}
 
 require('view.php');
 

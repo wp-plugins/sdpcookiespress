@@ -15,6 +15,7 @@ jQuery(document).ready(function () {
     jQuery(".register").on("click",function(event) {
         jQuery(".reg_api").hide();
         jQuery('input[name="mail"]').attr('required','required');
+        jQuery('input[name="check"]').attr('required','required');
         jQuery(".register_new").show();
         jQuery(".register_table").show();
 
@@ -24,6 +25,7 @@ jQuery(document).ready(function () {
         jQuery(".register_table").hide();
         jQuery('input[name="mail"]').val("");
         jQuery('input[name="mail"]').removeAttr('required');
+        jQuery('input[name="check"]').removeAttr('required');
         jQuery(".register_new").show();
         jQuery(".reg_api").show();
     });

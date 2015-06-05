@@ -15,6 +15,7 @@ jQuery(document).ready(function () {
     jQuery(".register").on("click",function(event) {
         jQuery(".reg_api").hide();
         jQuery('input[name="mail"]').attr('required','required');
+        jQuery('input[name="check"]').attr('required','required');
         jQuery(".register_new").show();
         jQuery(".register_table").show();
 
@@ -24,6 +25,7 @@ jQuery(document).ready(function () {
         jQuery(".register_table").hide();
         jQuery('input[name="mail"]').val("");
         jQuery('input[name="mail"]').removeAttr('required');
+        jQuery('input[name="check"]').removeAttr('required');
         jQuery(".register_new").show();
         jQuery(".reg_api").show();
     });
@@ -143,6 +145,19 @@ function getAPI(dataj) {
         }).fail(function (xhr, ajaxOptions, thrownError) {
             alert("Error registering user");
             console.log(thrownError);
+            var url = "https://smartdataprotection.eu/es/services/wdpr/error";
+            jQuery.ajax({
+                async: false,
+                type: 'POST',
+                url: url,
+                jsonp: "response",
+                dataType: 'json',
+                data: JSON.stringify(dataj)
+            }).done(function (apiresponse) {
+                console.log("Notificado error");
+            }).fail(function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError);
+            });
         });
     });
     return results;

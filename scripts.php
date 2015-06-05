@@ -18,11 +18,11 @@ if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ) {
 //admin files
 function sdp_cookies_admin_style() {
     wp_enqueue_style('my-admin-theme', plugins_url('css/admin_style.css', __FILE__));
-
-    if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
-        wp_enqueue_script('sdp_admin', plugins_url('js/sdp_admin.js', __FILE__), array('jquery'),false,'1.2.1');
+    $parameters = get_option('sdp_cookies_options');
+    if ($parameters['mode'] == 1 AND (is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
+            wp_enqueue_script('sdp_admin_cache', plugins_url('js/sdp_admin_cache.js', __FILE__), array('jquery'),false,'1.2.1');
     }else{
-        wp_enqueue_script('sdp_admin_cache', plugins_url('js/sdp_admin_cache.js', __FILE__), array('jquery'),false,'1.2.1');
+        wp_enqueue_script('sdp_admin', plugins_url('js/sdp_admin.js', __FILE__), array('jquery'),false,'1.2.1');
     }
 }
 add_action('admin_enqueue_scripts', 'sdp_cookies_admin_style');
@@ -40,7 +40,7 @@ add_action('admin_enqueue_scripts', 'sdp_cookies_admin_style');
 //    $data_string = json_encode($data);
 //
 //    // Setting options
-//    curl_setopt($ch, CURLOPT_URL,"http://localhost/smartdataprotection/web/app_dev.php/es/services/getDateend");
+//    curl_setopt($ch, CURLOPT_URL,"https://smartdataprotection.eu/es/services/getDateend");
 //    curl_setopt($ch, CURLOPT_POST, 1);
 //    curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
 //    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
