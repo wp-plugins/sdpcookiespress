@@ -82,6 +82,11 @@ div.api_table{
     width: 95%;
     border: 1px solid #aaa;
 }
+
+div.api_table>h4{
+    color: red;
+}
+
 table.register_table{
     width: 100%;
     border-spacing:  7px;
@@ -140,6 +145,41 @@ form#sdpCookiesForm input[type="submit"] {
 form#sdpCookiesForm figure img {
     max-width: 100%;
 }
+
+/*------Api Form------*/
+form#sdpApiForm {
+    max-width: 100%;
+}
+form#sdpApiForm textarea {
+    width: 100%;
+}
+form#sdpApiForm input[type="url"],
+form#sdpApiForm input[type="text"] {
+    padding: 8px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+form#sdpApiForm select{
+    padding: 8px;
+    width: 100%;
+}
+
+form#sdpApiForm input[type="submit"] {
+    color: #fff;
+    background-color: #4CAAE0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+form#sdpApiForm figure img {
+    max-width: 100%;
+}
+
+
 .img_logo {
     padding-top: 40px;
 }
@@ -225,6 +265,14 @@ div.tsc_pricingtable03 {
     overflow: hidden;
     margin: 50px auto 24px;
 }
+.sdp_link{
+    color: #fff;
+    background-color: #4CAAE0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
 div.tsc_pricingtable03 div.caption_column {
     width: 40%;
     height: 100%;

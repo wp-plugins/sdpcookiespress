@@ -9,7 +9,7 @@
 Plugin Name: SDP Cookies Press
 Plugin URI: http://smartdataprotection.eu/store/cookies/wordpress
 Description: La forma más sencilla , rápida y económica de cumplir la "ley de cookies".
-Version: 2.0.1
+Version: 2.1
 Author: Smart Data Protection
 Author URI: http://smartdataprotection.eu
 License: GPL2
@@ -152,9 +152,16 @@ function sdp_cookies (){
                     <input name="check" type="checkbox" required="required"> Acepto la <a href="http://smartdataprotection.eu/es/services/static/privacy_policy/bb8828bd2f4383fb2a3318f7d6227ecb">Política de privacidad</a> el <a href="http://smartdataprotection.eu/es/services/static/legal_advice/bb8828bd2f4383fb2a3318f7d6227ecb">Aviso Legal</a> y <a href="http://smartdataprotection.eu/es/legal/cpc/cookies/"> las Condiciones de contratación de SDP COOKIES</a> <br>
                 </td>
             </tr>
-
+            <tr>
+                <td>
+                    <input type="hidden" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255"/>
+                    <input type="hidden" name="custom_submit" value="true" />
+                    <p class="submit"><input class="enviar_form" type="submit" value="Guardar"/></p>
+                </td>
+            </tr>
             </table>
-
+        </form>
+        <form method="post" id="sdpApiForm">
             <table class="reg_api" style="display: none;">
                 <tr><td><h3>Licencia</h3></td></tr>
                 <tr>
@@ -165,22 +172,18 @@ function sdp_cookies (){
                 </tr>
                 <tr>
                     <td>
-                        <input type="text" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255"/>
+                        <input type="text" id="api" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255"/>
                         <input type="hidden" name="dateEnd" value="<?php echo $options['dateEnd'] ?>" size="255"/>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="custom_submit" value="true" />
+                        <p class="submit"><input class="enviar_form" type="submit" value="Guardar"/></p>
+                    </td>
+                </tr>
             </table>
-
-            <tr>
-                <td>
-                    <input type="hidden" name="custom_submit" value="true" />
-                    <p class="submit"><input class="enviar_form" type="submit" value="Guardar"/></p>
-
-                </td>
-            </tr>
-
         </form>
-
     </div>
     <div class="api_table" style="display: none;">
         <table>
@@ -214,7 +217,7 @@ function sdp_cookies (){
         if ( (is_plugin_active('wp-fastest-cache/wpFastestCache.php')) AND $options['mode'] == 1){
             echo '<p><strong>¡Estamos bloqueando tus cookies! Te puedes sentir orgulloso al cumplir al 100% con la ley.</strong></p>';
         }else{
-            echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita que habilites el bloqueo de cookies e instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong>. En caso de que tengas algún problema con el plugin, no selecciones esta opción y ponte en contacto con nosotros en <a href="mailto:soporte@smartdataprotection.eu">soporte@smartdataprotection.eu</a> </p>';
+            echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita que habilites el bloqueo de cookies e instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong>. En caso de que tengas algún problema con el plugin, no selecciones esta opción y ponte en contacto con nosotros en <a href="mailto:soporte@smartdataprotection.eu">soporte@smartdataprotection.eu</a> o llámanos al +34 96 105 92 47 </p>';
         }
         ?>
         <form action="<?php simpleMode(); ?>" method="post">
@@ -233,13 +236,24 @@ function sdp_cookies (){
     <br>
     <div class="api_table dateend" style="display: none">
         <form action="<?php updateDateend($options['apiKey']); ?>" method="post">
-            <h4>Tú licencia termina el: <?php echo $options['dateEnd'] ?></h4>
+            <?php
+            $now = new DateTime("now");
+            $end = new DateTime($options['dateEnd']);
+
+            if($now >= $end){
+                echo '<h4>Tienes activada una versión demo</h4>';
+                echo '<a id="pricingLink" class="sdp_link">Adquiere la versión PRO</a>';
+            }else{
+                echo '<p><b>Tienes activa una licencia PRO</b></p>';
+            }
+            ?>
             <input type="hidden" name="apiKey" value="<?php echo $options['apiKey'] ?>" size="255">
-<!--            <input type="submit" name="go" class="update" value="Actualizar" />-->
+            <!--            <input type="submit" name="go" class="update" value="Actualizar" />-->
         </form>
         <br>
 
-        <a id="pricingLink" class="sdp_link">Descubre por qué utilizar SDP y no un plugin cualquier otro gratuito</a>
+
+        <!-- <a id="pricingLink" class="sdp_link">Adquiere la versión PRO</a> -->
         <!-- comparing table -->
 
         <div id="pricingTable" class="tsc_pricingtable03 tsc_pt3_style1" style="display: none;">
@@ -267,7 +281,7 @@ function sdp_cookies (){
                     </li>
                     <li class="header_row_2 align_center">
                         <h1 class="col1">Gratis</h1>
-                        <h3 class="col1">¿Seguro?</h3>
+<!--                        <h3 class="col1">¿Seguro?</h3>-->
                     </li>
                     <li class="row_style_3 align_center"><span class="pricing_yes"></span></li>
                     <li class="row_style_1 align_center">Algunos</li>
@@ -287,7 +301,7 @@ function sdp_cookies (){
                     </li>
                     <li class="header_row_2 align_center">
                         <h1 class="col3"><span>29</span>€</h1>
-                        <h3 class="col3">por año</h3>
+<!--                        <h3 class="col3">por año</h3>-->
                     </li>
                     <li class="row_style_4 align_center"><span class="pricing_yes"></span></li>
                     <li class="row_style_2 align_center"><span class="pricing_yes"></span></li>
@@ -297,6 +311,7 @@ function sdp_cookies (){
                     <li class="row_style_2 align_center"><span class="pricing_yes"></span></li>
                     <li class="row_style_4 align_center"><span class="pricing_yes"></span></li>
                     <li class="row_style_2 align_center"><span class="pricing_yes"></span></li>
+                    <li class="row_style_2 align_center"><input type="button" name="go" class="sdp_link" value="¡Adquirir versión PRO!"  onclick="window.location.href='https://smartdataprotection.eu/es/wordpress/<?php echo $options['apiKey'] ?>'"/></li>
                     <!--                <li class="footer_row"><a href="" class="tsc_buttons2 grey">sign up!</a></li>-->
                 </ul>
             </div>
