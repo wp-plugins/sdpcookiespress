@@ -5,25 +5,37 @@ include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 //{
 //    updateDateend($_POST['apiKey']);
 //}
-if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ) {
     function sdp_cookies_script() {
         $parameters = get_option('sdp_cookies_options');
         if($parameters["apiKey"]!=""){
-            echo '<script type="text/javascript" src="http://smartdataprotection.eu/es/services/mcla/'.$parameters["apiKey"].'"></script>';
+            echo "<script type='text/javascript' src = '//smartdataprotection.eu/es/services/mcla/".$parameters["apiKey"]."'></script>";
+//            echo "<script type='text/javascript'>(function() {var s = document.createElement('script');s.type = 'text/javascript';s.async = true;s.src = 'http://smartdataprotection.eu/es/services/mcla/".$parameters["apiKey"]."';var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s, x);})();</script>";
+
+//            echo "<script type='text/javascript' async=true src='//smartdataprotection.eu/es/services/mcla/".$parameters["apiKey"]."'></script>";
+
+//            echo "
+//                <script type='text/javascript'>
+//
+//                (function() {
+//                    var s = document.createElement('script');
+//                    s.type = 'text/javascript';
+//                    s.async = false;
+//                    s.src = '//smartdataprotection.eu/es/services/mcla/".$parameters['apiKey']."';
+//                    var x = document.getElementsByTagName('script')[0];
+//                    x.parentNode.insertBefore(s, x);
+//                })();
+//
+//                </script>
+//            ";
         }
     }
     add_action( 'wp_head', 'sdp_cookies_script', 1);
-}
 
 //admin files
 function sdp_cookies_admin_style() {
-    wp_enqueue_style('my-admin-theme', plugins_url('css/admin_style.css', __FILE__));
+    wp_enqueue_style('sdp-admin-theme', plugins_url('css/admin_style.css', __FILE__));
     $parameters = get_option('sdp_cookies_options');
-    if ($parameters['mode'] == 1 AND (is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
-            wp_enqueue_script('sdp_admin_cache', plugins_url('js/sdp_admin_cache.js', __FILE__), array('jquery'),false,'1.2.1');
-    }else{
-        wp_enqueue_script('sdp_admin', plugins_url('js/sdp_admin.js', __FILE__), array('jquery'),false,'1.2.1');
-    }
+    wp_enqueue_script('sdp_admin', plugins_url('js/sdp_admin.js', __FILE__), array('jquery'),false,'1.2.1');
 }
 add_action('admin_enqueue_scripts', 'sdp_cookies_admin_style');
 

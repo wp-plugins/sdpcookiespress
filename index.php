@@ -8,12 +8,14 @@
 /*
 Plugin Name: SDP Cookies Press
 Plugin URI: http://smartdataprotection.eu/store/cookies/wordpress
-Description: La forma más sencilla , rápida y económica de cumplir la "ley de cookies".
-Version: 2.1
+Description: El plugin más prorfesional para cumplir la "ley de cookies".
+Version: 2.1.1
 Author: Smart Data Protection
 Author URI: http://smartdataprotection.eu
 License: GPL2
 */
+global $plugin_list;
+
 //On active plugin
 function get_sdp_cookie_defaults () {
 
@@ -30,6 +32,7 @@ function get_sdp_cookie_defaults () {
         'automatic_page' => '1',
         'noticeUrl' => '',
         'gacode' => '',
+//        'deactivemodules' => '',
     );
 
     update_option('sdp_cookies_options', $parameters);
@@ -67,13 +70,27 @@ function sdp_cookies (){
         $parameters['style'] = strip_tags(stripslashes($_POST["style"]));
         $parameters['consentmodel'] = strip_tags(stripslashes($_POST["consentmodel"]));
         $parameters['dateEnd'] = strip_tags(stripslashes($_POST["dateEnd"]));
-
+//        $parameters['deactivemodules'] = strip_tags(stripslashes($_POST["deactivemodules"]));
     }
+//    $parameters['deactivemodules'] = array('contact-form-7/wp-contact-form-7.php');
 
     if ( $options != $parameters ) {
         $options = $parameters;
         update_option('sdp_cookies_options', $options);
     }
+
+//    if ( ! function_exists( 'get_plugins' ) ) {
+//        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+//    }
+//    $all_plugins = get_plugins();
+//    foreach ($all_plugins as $plugin => $details) {
+//        if ($plugin != 'sdpcookiespress/index.php') {
+//            echo '<div style="width:170px; display: inline-block; margin: 3px;"><img src="../modules/' . $plugin . '/logo.gif" style="width:20px; margin-right: 2px;" ><input type="checkbox" id="' . $plugin . '" name="plugin' . $plugin . '"' . ' value="1" style="margin-right: 3px;">' . $details['Name'] . '</div>';
+//            $plugin_list[] = $plugin;
+//        }
+//    }
+//    print_r($plugin_list);
+
     ?>
 
     <header>
@@ -191,47 +208,10 @@ function sdp_cookies (){
                 <td>
                     <h2>¡Enhorabuena! Ya tienes listo tu banner de cookies y los textos legales!</h2>
                     <p> Recuerda que debes insertar el link al aviso de cookies (<code>&lt;a href="#" id="sdpCookiesAdviceLink" class="cookiesinfo">Aviso de cookies&lt;/a></code>) en todas las páginas. Un buen sitio puede ser el footer o pie de página. </p>
+                    <p>En caso de que tengas algún problema con el plugin, no selecciones esta opción y ponte en contacto con nosotros en <a href="mailto:soporte@smartdataprotection.eu">soporte@smartdataprotection.eu</a> o llámanos al +34 96 105 92 47 </p>
                 </td>
             </tr>
-<!--            <tr>-->
-<!--                <td>-->
-<!--                    --><?php
-//                    if ( !(is_plugin_active('wp-fastest-cache/wpFastestCache.php')) ){
-//                        echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong></p>';
-//                    }else{
-//                        echo '<p><strong>¡Además te puedes sentir orgulloso al cumplir al 100% con la ley!</strong></p>';
-//                    }
-//                    ?>
-<!--                </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><a href="http://smartdataprotection.eu/es/legal/cpc/cookies/"> Condiciones de contratación de SDP COOKIES</a></td>-->
-<!--            </tr>-->
-
-
         </table>
-    </div>
-    <br>
-    <div class="api_table dateend" style="display: none">
-        <?php
-        if ( (is_plugin_active('wp-fastest-cache/wpFastestCache.php')) AND $options['mode'] == 1){
-            echo '<p><strong>¡Estamos bloqueando tus cookies! Te puedes sentir orgulloso al cumplir al 100% con la ley.</strong></p>';
-        }else{
-            echo '<p> <strong>Si quieres cumplir al 100% la ley española se deben bloquear las cookies. Para ello nuestro plugin necesita que habilites el bloqueo de cookies e instales el plugin WP Fastest Cache <a href="https://wordpress.org/plugins/wp-fastest-cache/">Plugin Fastest Cache</a></strong>. En caso de que tengas algún problema con el plugin, no selecciones esta opción y ponte en contacto con nosotros en <a href="mailto:soporte@smartdataprotection.eu">soporte@smartdataprotection.eu</a> o llámanos al +34 96 105 92 47 </p>';
-        }
-        ?>
-        <form action="<?php simpleMode(); ?>" method="post">
-            <?php
-            if ($options['mode'] == 1){
-                echo '<input name="cacheMode" type="checkbox" value="Yes" checked> Habilitar bloqueo de cookies con plugin de caché </input>';
-            }else{
-                echo '<input name="cacheMode" type="checkbox" value="Yes"> Habilitar bloqueo de cookies con plugin de caché </input>';
-            } ?>
-
-            <br>
-            <br>
-            <input type="submit" name="go" class="sdp_link" value="Guardar" />
-        </form>
     </div>
     <br>
     <div class="api_table dateend" style="display: none">
@@ -322,8 +302,6 @@ function sdp_cookies (){
 
 <?php
 }
-
-
 
 require('scripts.php');
 
@@ -418,9 +396,34 @@ function simpleMode (){
     }
 }
 
-require('view.php');
+//function deactive_plugins()
+//{
+//    $parameters = get_option('sdp_cookies_options');
 
-////----- CRON WORDPRESS
-require('cron.php');
+//    if(isset($_COOKIE["smartdataprotection_lssi"]))
+//    {
+//        foreach ($parameters['deactivemodules'] as $active) {
+//        if ( is_plugin_inactive($parameters['deactivemodules']) ) {
+//            activate_plugin($active);
+//        }
+//        }
+//    }
+//    else
+//    {
+//        if ( is_plugin_active($parameters['deactivemodules']) ) {
+//            deactivate_plugins($parameters['deactivemodules']);
+//        }
+//    }
+//    echo "deactive";
+//}
+//add_action('wp_head', 'deactive_plugins', 1);
+
+//function wpmdbc_exclude_plugins( $plugins ) {
+//    $parameters = get_option('sdp_cookies_options');
+//    return $parameters['deactivemodules'];
+//}
+//add_filter( 'option_active_plugins', 'wpmdbc_exclude_plugins' );
+
+require('view.php');
 
 ?>
